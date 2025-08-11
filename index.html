@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🍽 Recipe Finder</h1>
+  
+  <div class="search-box">
+    <input type="text" id="ingredientInput" placeholder="Enter ingredient (e.g., tomato)">
+    <button onclick="searchRecipes()">Search</button>
+    <button onclick="randomRecipe()">Surprise Me</button>
+  </div>
+
+  <div id="loading" class="hidden">⏳ Loading...</div>
+
+  <div id="recipes"></div>
+
+  <div class="floating-elements">
+    <div class="floating-element circle"></div>
+    <div class="floating-element square"></div>
+    <div class="floating-element triangle"></div>
+    <div class="floating-element circle"></div>
+    <div class="floating-element square"></div>
+    <div class="floating-element triangle"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

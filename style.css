@@ -1,0 +1,269 @@
+/* --- Global Styles --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1117;
+    color: #e6e6e6;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes floating-animation {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* --- Layout and Component Styles --- */
+h1 {
+    color: #56aaff;
+    padding: 40px 20px 20px;
+    font-size: 2.5rem;
+    font-weight: 300;
+    animation: fadeIn 1s ease-out;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+h1:hover {
+    transform: scale(1.02);
+    color: #4a90e2;
+}
+
+.search-box {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #161b22;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.2s ease-out;
+}
+
+input {
+    padding: 12px;
+    width: 250px;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    background-color: #0d1117;
+    color: #e6e6e6;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:hover {
+    border-color: #56aaff;
+    box-shadow: 0 0 8px rgba(86, 170, 255, 0.5);
+}
+
+input:focus {
+    outline: none;
+    border-color: #56aaff;
+    box-shadow: 0 0 8px rgba(86, 170, 255, 0.8);
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #56aaff;
+    color: #0d1117;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #4a90e2;
+    transform: translateY(-2px);
+}
+
+#loading {
+    font-size: 1.2rem;
+    color: #56aaff;
+    margin-top: 20px;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+#recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.recipe-card {
+    background: #161b22;
+    border-radius: 12px;
+    padding: 15px;
+    width: 280px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #30363d;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #56aaff, 0 0 25px #56aaff, 0 0 35px #56aaff; /* Neon Glow Effect */
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.recipe-card h3 {
+    margin: 15px 0 10px;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.recipe-card a {
+    display: inline-block;
+    background-color: #56aaff;
+    color: #0d1117;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.recipe-card a:hover {
+    background-color: #4a90e2;
+}
+
+/* --- Floating Elements Animation --- */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-element {
+    position: absolute;
+    bottom: -100px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    animation-name: floating-animation;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.floating-element.circle {
+    border-radius: 50%;
+    box-shadow: 0 0 10px #56aaff;
+}
+
+.floating-element.square {
+    box-shadow: 0 0 10px #ff5722;
+}
+
+.floating-element.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid rgba(255, 255, 255, 0.1);
+    background-color: transparent;
+    box-shadow: 0 0 10px #23d5ab;
+}
+
+/* Individual animation timings and positions */
+.floating-elements .floating-element:nth-child(1) {
+    left: 10%;
+    width: 30px;
+    height: 30px;
+    animation-duration: 15s;
+    animation-delay: 0s;
+}
+.floating-elements .floating-element:nth-child(2) {
+    left: 25%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 20s;
+    animation-delay: 2s;
+}
+.floating-elements .floating-element:nth-child(3) {
+    left: 40%;
+    width: 35px;
+    height: 35px;
+    animation-duration: 18s;
+    animation-delay: 4s;
+}
+.floating-elements .floating-element:nth-child(4) {
+    left: 55%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 12s;
+    animation-delay: 6s;
+}
+.floating-elements .floating-element:nth-child(5) {
+    left: 70%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 22s;
+    animation-delay: 8s;
+}
+.floating-elements .floating-element:nth-child(6) {
+    left: 85%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 16s;
+    animation-delay: 10s;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .search-box {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+    input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    button {
+        width: 100%;
+    }
+    .recipe-card {
+        width: 90%;
+    }
+}
